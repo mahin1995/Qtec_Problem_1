@@ -1,0 +1,39 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<div class="row">
+    <div class=" col-md-4 mb-0">
+      <label for="id_title" class=" requiredField">
+        filter by user<span class="asteriskField">*</span>
+    </label>
+      <select class="form-select" id="id_userName" aria-label="Default select example">
+        <option value="">------</option>
+        {% for user in user %}
+        <option value="{{user.username}}">{{user.username}}</option>
+        {% endfor %}
+        
+      </select>
+    </div>
+    <div class=" col-md-4 mb-0">
+      <label for="id_title" class=" requiredField">
+        filter by Keyword<span class="asteriskField">*</span>
+    </label>
+      <select class="form-select" id="id_titles" aria-label="Default select example">
+        <option value="">------</option>
+        {% for key in key %}
+        <option value="{{key.title}}">{{key.title}}</option>
+        {% endfor %}
+        
+      </select>
+    </div>
+    <div class="col-md-4 mb-0">
+
+        <label for="id_title" class=" requiredField">
+          filter by time<span class="asteriskField">*</span>
+      </label>
+          <input id="id_time" type="datetime-local" class="form-control"  id="birthdaytime" name="birthdaytime">
+          <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
+          </span>
+     
+  </div>
+    </div>

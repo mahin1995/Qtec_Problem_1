@@ -1,0 +1,36 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<div class="col-md-4">
+    <h1>Keyword adds  </h1>
+    <form method="post" id="edit_form" action="{% url 'insert_key' %}"
+    class="update-form">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group col mb-0">
+        {{ keyForm.title|as_crispy_field }}
+      </div>
+      <div class="form-group col mb-0">
+        {{ keyForm.describe|as_crispy_field }}
+      </div>
+      <div class="form-group col mb-0">
+        <div class=" col-md-4 mb-0">
+          <label for="id_title" class=" requiredField">
+            user<span class="asteriskField">*</span>
+        </label>
+          <select class="form-select" name="user_name" id="id_user_name" aria-label="Default select example">
+            <option value="">------</option>
+            {% for user in user %}
+            <option value="{{user.username}}">{{user.username}}</option>
+            {% endfor %}
+            
+          </select>
+        </div>
+      </div>
+ 
+    </div>
+    <br>
+    <br>
+    
+    <button type="submit" id="btnSubmit" class="btn btn-primary">ADD</button>
+  </form>
+</div>
